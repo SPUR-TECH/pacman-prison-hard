@@ -1,0 +1,204 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(0deg,
+            rgb(0, 255, 255) 50%,
+            rgb(2, 0, 143) 100%);
+    overflow: hidden;
+    touch-action: pan-y;
+    touch-action: pan-x;
+}
+
+#gameCanvas {
+    margin-top: 50px;
+    box-shadow: 10px 10px 20px black;
+    background-color: black;
+    border-radius: 5px;
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+}
+
+#start-screen {
+    position: absolute;
+    width: 470px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('images/startscreen.png');
+    border-radius: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    font-family: comic sans MS;
+    color: yellow;
+    text-shadow: 5px 5px 5px black;
+    margin-top: -100px;
+}
+
+#instructions {
+    text-align: center;
+    font-family: comic sans MS;
+    font-size: 16px;
+    color: rgb(163, 0, 0);
+    text-shadow: 1px 1px 2px black;
+    padding-bottom: 60px;
+    margin-top: 400px;
+}
+
+#controls-button {
+    position: absolute;
+    border-radius: 50px;
+    padding: 5px;
+    width: 100px;
+    margin-top: 20px;
+    background: rgb(43, 255, 0);
+    text-shadow: 1px 1px 1px black;
+    box-shadow: 8px 8px 18px black;
+    margin-top: 320px;
+    cursor: pointer;
+}
+
+#start-button {
+    position: absolute;
+    border-radius: 50px;
+    padding: 5px;
+    width: 200px;
+    top: 20px;
+    background: blue;
+    color: yellow;
+    text-shadow: 2px 2px 1px black;
+    box-shadow: 8px 8px 18px black;
+    cursor: pointer;
+}
+
+#gameover-screen {
+    position: absolute;
+    width: 300px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('images/sad-pacman.png');
+    border-radius: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+#gameover-title {
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    font-family: comic sans MS;
+    color: yellow;
+    text-shadow: 5px 5px 5px black;
+    margin-top: -70px;
+}
+
+#gameover-restart-button {
+    position: absolute;
+    border-radius: 50px;
+    padding: 5px;
+    width: 200px;
+    margin-top: 330px;
+    background: blue;
+    color: yellow;
+    text-shadow: 2px 2px 1px black;
+    box-shadow: 8px 8px 18px black;
+    cursor: pointer;
+}
+
+#win-screen {
+    position: absolute;
+    width: 300px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('images/happy-pacman.png');
+    border-radius: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+#win-title {
+    position: absolute;
+    width: 300px;
+    font-family: comic sans MS;
+    color: yellow;
+    text-shadow: 5px 5px 5px black;
+    margin-top: -80px;
+}
+
+#win-restart-button {
+    position: absolute;
+    border-radius: 50px;
+    padding: 5px;
+    width: 200px;
+    margin-top: 330px;
+    background: blue;
+    color: yellow;
+    text-shadow: 2px 2px 1px black;
+    box-shadow: 8px 8px 18px black;
+    cursor: pointer;
+}
+
+@media all and (max-width: 500px) {
+    #start-screen {
+        width: 300px;
+    }
+
+    h1 {
+        width: 300px;
+        padding-top: 30px;
+    }
+
+    #controls-button {
+        margin-top: 200px;
+    }
+
+    #instructions {
+        font-size: 14px;
+        margin-top: 250px;
+    }
+
+    #start-button {
+        margin-top: 480px;
+    }
+
+    #gameover-title {
+        margin-top: -100px;
+    }
+}
