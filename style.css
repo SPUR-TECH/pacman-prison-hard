@@ -136,9 +136,9 @@ h1 {
     }
 
     50% {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-        filter: brightness(200%);
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+        filter: brightness(230%);
     }
 
     100% {
