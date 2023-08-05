@@ -59,7 +59,7 @@ h1 {
     color: rgb(163, 0, 0);
     text-shadow: 1px 1px 2px black;
     padding-bottom: 60px;
-    margin-top: 400px;
+    margin-top: 350px;
 }
 
 #controls-button {
@@ -296,7 +296,42 @@ h1 {
     cursor: pointer;
 }
 
+
+@media all and (max-width:900px) {
+
+    body {
+        height: 860px;
+    }
+
+    #start-screen {
+        border-radius: 0%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 250px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        width: 300px;
+        padding-top: 30px;
+    }
+
+    #controls-button {
+        margin-top: 180px;
+    }
+
+    #instructions {
+        font-size: 13px;
+        margin-top: 220px;
+    }
+}
+
 @media all and (max-width: 500px) {
+
+    body {
+        height: 100vh;
+    }
+
     #start-screen {
         width: 300px;
     }
