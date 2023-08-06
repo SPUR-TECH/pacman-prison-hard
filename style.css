@@ -5,6 +5,7 @@
 }
 
 body {
+    height: 110vh;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -22,7 +23,7 @@ body {
     background-color: black;
     border-radius: 5px;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 110%;
     display: none;
 }
 
@@ -300,7 +301,7 @@ h1 {
 @media all and (max-width:900px) {
 
     body {
-        height: 860px;
+        height: 900px;
     }
 
     #start-screen {
@@ -324,13 +325,40 @@ h1 {
         font-size: 13px;
         margin-top: 220px;
     }
+
+    #gameover-screen {
+        width: 200px;
+        border-radius: 0%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    #gameover-title {
+        margin-top: -90px;
+    }
+
+    #gameover-restart-button {
+        margin-top: 220px;
+    }
+
+    #win-screen {
+        height: 200px;
+        width: 200px;
+        border-radius: 0%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    #win-title {
+        margin-top: -90px;
+    }
+
+    #win-restart-button {
+        margin-top: 220px;
+    }
 }
 
 @media all and (max-width: 500px) {
-
-    body {
-        height: 100vh;
-    }
 
     #start-screen {
         width: 300px;
