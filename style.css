@@ -12,9 +12,7 @@ body {
     height: 100vh;
     background: linear-gradient(0deg,
             rgb(0, 255, 255) 50%,
-            rgb(2, 0, 143) 100%);
-    touch-action: pan-y;
-    touch-action: pan-x;
+            rgb(2, 0, 143) 100%)
 }
 
 #gameCanvas {
@@ -25,6 +23,8 @@ body {
     max-width: 100%;
     max-height: 110%;
     display: none;
+    touch-action: pan-y;
+    touch-action: pan-x;
 }
 
 #start-screen {
