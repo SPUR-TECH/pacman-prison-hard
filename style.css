@@ -5,7 +5,7 @@
 }
 
 body {
-    height: 110vh;
+    height: 100vh;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -16,12 +16,12 @@ body {
 }
 
 #gameCanvas {
-    margin-top: 50px;
+    margin-top: 150px;
     box-shadow: 10px 10px 20px black;
     background-color: black;
     border-radius: 5px;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 100vh;
     display: none;
     touch-action: pan-y;
     touch-action: pan-x;

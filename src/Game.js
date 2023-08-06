@@ -1,4 +1,4 @@
-import TileMap from './TileMap.js'
+import TileMap from './TileMap.js';
 
 let tileSize = 32;
 let velocity = 2;
@@ -10,6 +10,7 @@ let pacman = tileMap.getPacman(velocity);
 let enemies = tileMap.getEnemies(velocity);
 
 let button = document.getElementById('start');
+let started = false;
 
 let gameOver = false;
 let gameWin = false;
@@ -20,7 +21,6 @@ let startSound = new Audio("sounds/start.wav");
 function init() {
     tileSize = 32;
     velocity = 2;
-    canvas = document.getElementById('gameCanvas');
     ctx = canvas.getContext('2d');
     tileMap = new TileMap(tileSize);
     pacman = tileMap.getPacman(velocity);
@@ -34,13 +34,15 @@ function init() {
 }
 
 function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    tileMap.draw(ctx);
-    pacman.draw(ctx, pause(), enemies);
-    enemies.forEach((enemy) => enemy.draw(ctx, pause(), pacman));
-    drawGameEnd();
-    checkGameOver();
-    checkGameWin();
+    if (started) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        tileMap.draw(ctx);
+        pacman.draw(ctx, pause(), enemies);
+        enemies.forEach((enemy) => enemy.draw(ctx, pause(), pacman));
+        drawGameEnd();
+        checkGameOver();
+        checkGameWin();
+    }
 }
 
 document.querySelector('#start-button').addEventListener('click', () => {
@@ -48,20 +50,26 @@ document.querySelector('#start-button').addEventListener('click', () => {
     document.querySelector('#start-screen').style.display = 'none'
     document.querySelector('#gameCanvas').style.display = 'flex'
     init()
-})
+    started = true;
+
+    // Start the game loop
+    setInterval(gameLoop, 1000 / 75);
+});
 
 document.querySelector('#win-restart-button').addEventListener('click', () => {
     document.querySelector('#win-screen').style.display = 'none'
     document.querySelector('#start-screen').style.display = 'flex'
     init()
-})
+    started = false; // Stop the game loop when the game is restarted
+});
 
 document.querySelector('#gameover-restart-button').addEventListener('click', () => {
     document.querySelector('#gameover-screen').style.display = 'none'
     document.querySelector('#win-screen').style.display = 'none'
     document.querySelector('#start-screen').style.display = 'flex'
     init()
-})
+    started = false; // Stop the game loop when the game is restarted
+});
 
 function checkGameWin() {
     if (!gameWin) {
@@ -70,6 +78,7 @@ function checkGameWin() {
             document.querySelector('#gameCanvas').style.display = 'none'
             document.querySelector('#win-screen').style.display = 'flex'
             gameWinSound.play();
+            started = false; // Stop the game loop when the game is won
         }
     }
 }
@@ -81,6 +90,7 @@ function checkGameOver() {
             document.querySelector('#gameover-screen').style.display = 'flex'
             document.querySelector('#gameCanvas').style.display = 'none'
             gameOverSound.play();
+            started = false; // Stop the game loop when the game is over
         }
     }
 }
@@ -112,11 +122,9 @@ function drawGameEnd() {
         gradient.addColorStop("0.8", "rgb(0, 255, 255)");
         gradient.addColorStop("1.0", "rgb(0, 255, 255)");
 
-
         ctx.fillStyle = gradient;
         ctx.fillText(text, 10, canvas.height / 2);
     }
 }
 
 tileMap.setCanvasSize(canvas);
-setInterval(gameLoop, 1000 / 75)
